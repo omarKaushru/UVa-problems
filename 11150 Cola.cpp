@@ -1,20 +1,20 @@
+///Accepted
 #include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    long int n, sum,t;
+    int n,ans;
     while(cin>>n)
     {
-        sum=n;
+        ans=n;
         while(n>=3)
         {
-            t=n/3;
-            sum=sum+t;
-            n=(n%3)+t;
+            ans=ans+n/3;
+            n=n/3+n%3;
         }
         if(n==2)
-        sum++;
-        cout<<sum<<endl;
+        ans++;
+        cout<<ans<<endl;
     }
 }

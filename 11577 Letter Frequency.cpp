@@ -1,47 +1,50 @@
+///Accepted
 #include <bits/stdc++.h>
 #include <string.h>
 #include <ctype.h>
 using namespace std;
-
 int main()
 {
-    int t,freq[30],l,i,j,max,c=0;
-    char a[1000],letter[30];
-    cin>>t;
-   // getchar();
-    while(c<=t)
-    {
-        gets(a);
-        l=strlen(a);
-        if(l==0)
-        continue;
-        for(i=0; i<26;i++)
-        freq[i]=0;
-        for(i=0; i<26; i++)
-        letter[i]=i+97;
+    char letter[26], msg[201];
+    int freq[26],test, i, j, max,len;
 
-        for(i=0;i<l; i++)
+    cin>>test;
+    getchar();
+    while(test--)
+    {
+        gets(msg);
+
+        for(i=0; i<26; i++)
+            freq[i]=0;
+
+        for(i=0; i<26; i++)
+            letter[i]=97+i;
+
+        len=strlen(msg);
+
+        for(i=0; i<len; i++ )
         {
-            a[i]=tolower(a[i]);
+            msg[i]=tolower(msg[i]);
+
             for(j=0; j<26; j++)
             {
-                if(a[i]==letter[j])
-                freq[j]++;
+                if(msg[i]==letter[j])
+                    freq[j]++;
             }
         }
+
         max=-1;
+
         for(i=0; i<26; i++)
         {
             if(freq[i]>max)
-            max=freq[i];
+                max=freq[i];
         }
         for(i=0; i<26; i++)
         {
             if(freq[i]==max)
-            cout<<letter[i];
+                printf("%c",letter[i]);
         }
-
-        cout<<endl;
-        c++;
+        printf("\n");
     }
 }
